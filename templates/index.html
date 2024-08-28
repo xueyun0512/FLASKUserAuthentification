@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %} Index Page {% endblock %}
+
+{% block content%} 
+<h1> This is the index page </h2>
+    {% if current_user.is_authenticated %}
+        <h3> Hello {{ current_user.username }}</h3>
+    {% else %}
+        <h3> Hello, there is no current user </h3>
+    {% endif %}
+
+    <a href="{{url_for('signup')}}">Sign Up</a>
+    <a href="{{url_for('login')}}">Login</a>
+    <a href="{{url_for('logout')}}">Logout</a>
+{% endblock %}
